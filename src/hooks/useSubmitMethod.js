@@ -10,7 +10,13 @@ const useSubmitMethod = ({
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
 
-  const handleSubmit = async ({ url, data, method = "POST", onSuccess }) => {
+  const handleSubmit = async ({
+    url,
+    data,
+    method = "POST",
+    onSuccess,
+    onError,
+  }) => {
     setIsLoading(true);
     setResponse(null);
     setError(null);
@@ -44,9 +50,15 @@ const useSubmitMethod = ({
       } else {
         const errorResponse = res || "Request failed";
         setError(errorResponse);
+        if (onError && typeof onError === "function") {
+          onError(errorResponse);
+        }
       }
     } catch (err) {
       setError(err.response || "Request failed");
+      if (onError && typeof onError === "function") {
+        onError(errorResponse);
+      }
     } finally {
       setIsLoading(false);
     }
