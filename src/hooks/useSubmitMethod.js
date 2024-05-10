@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 
 const useSubmitMethod = ({
-  token = "",
+  token = undefined,
   tokenType = "Bearer",
   headersConfig = {},
 } = {}) => {
@@ -35,18 +35,18 @@ const useSubmitMethod = ({
       const res = await axios(axiosConfig);
 
       if (res.status >= 200 && res.status < 300) {
-        const jsonResponse = res.data;
+        const jsonResponse = res;
         setResponse(jsonResponse);
 
         if (onSuccess && typeof onSuccess === "function") {
           onSuccess(jsonResponse);
         }
       } else {
-        const errorResponse = res.data || "Request failed";
+        const errorResponse = res || "Request failed";
         setError(errorResponse);
       }
     } catch (err) {
-      setError(err.response.data || "Request failed");
+      setError(err.response || "Request failed");
     } finally {
       setIsLoading(false);
     }
