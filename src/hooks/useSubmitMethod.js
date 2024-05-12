@@ -7,8 +7,9 @@ const useSubmitMethod = ({
   headersConfig = {},
 } = {}) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [response, setResponse] = useState(null);
-  const [error, setError] = useState(null);
+
+  let updatedResponse = null;
+  let updatedError = null;
 
   const handleSubmit = async ({
     url,
@@ -16,10 +17,9 @@ const useSubmitMethod = ({
     method = "POST",
     onSuccess,
     onError,
+    refetch,
   }) => {
     setIsLoading(true);
-    setResponse(null);
-    setError(null);
 
     const headers = {
       "Content-Type": "application/json",
@@ -42,33 +42,38 @@ const useSubmitMethod = ({
 
       if (res.status >= 200 && res.status < 300) {
         const jsonResponse = res;
-        setResponse(jsonResponse);
+        updatedResponse = jsonResponse;
 
         if (onSuccess && typeof onSuccess === "function") {
           onSuccess(jsonResponse);
         }
+
+        if (refetch) {
+          refetch();
+        }
       } else {
         const errorResponse = res || "Request failed";
-        setError(errorResponse);
+        updatedError = errorResponse;
         if (onError && typeof onError === "function") {
           onError(errorResponse);
         }
       }
     } catch (err) {
-      setError(err.response || "Request failed");
+      const errorResponse = err || "Request failed";
+      updatedError = errorResponse;
       if (onError && typeof onError === "function") {
         onError(errorResponse);
       }
     } finally {
       setIsLoading(false);
     }
+
+    return { error: updatedError, response: updatedResponse };
   };
 
   return {
     handleSubmit,
     isLoading,
-    response,
-    error,
   };
 };
 

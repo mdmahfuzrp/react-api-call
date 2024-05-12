@@ -1,10 +1,10 @@
 {
   "name": "react-api-call",
-  "version": "1.0.8",
+  "version": "1.1.8",
   "type": "module",
   "description": "This is an npm to manage your all of api calls",
-  "main": "dist/index",
-  "types": "dist/index",
+  "main": "dist/index.js",
+  "types": "dist/index.js",
   "scripts": {
     "build:dev": "rollup -c --environment NODE_ENV:development",
     "build": "rollup -c --environment NODE_ENV:production"
