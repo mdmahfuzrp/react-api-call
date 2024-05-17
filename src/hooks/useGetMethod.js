@@ -1,21 +1,22 @@
 import axios from "axios";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 const useGetMethod = ({
-  token = undefined,
+  apiUrl = null,
+  token,
   tokenType = "Bearer",
   headersConfig = {},
 } = {}) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [url, setUrl] = useState(null);
-
-  let updatedResponse = null;
-  let updatedError = null;
+  const [url, setUrl] = useState(apiUrl);
+  const [response, setResponse] = useState(null);
+  const [error, setError] = useState(null);
 
   const getData = useCallback(
-    async ({ url: apiUrl, onSuccess, onError }) => {
-      setIsLoading(true);
-      setUrl(apiUrl);
+    async (apiUrl, shouldSetLoading = true) => {
+      if (shouldSetLoading) {
+        setIsLoading(true);
+      }
 
       const headers = {
         "Content-Type": "application/json",
@@ -27,50 +28,47 @@ const useGetMethod = ({
       }
 
       try {
-        const axiosConfig = {
-          method: "GET",
-          url: apiUrl,
-          headers,
-        };
-
-        const res = await axios(axiosConfig);
+        const res = await axios.get(apiUrl, { headers });
 
         if (res.status >= 200 && res.status < 300) {
-          updatedResponse = res;
-
-          if (onSuccess && typeof onSuccess === "function") {
-            onSuccess(res);
-          }
+          setResponse(res);
+          setError(null);
         } else {
-          updatedError = res;
-          if (onError && typeof onError === "function") {
-            onError(res);
-          }
+          setError(res);
+          setResponse(null);
         }
       } catch (err) {
-        updatedError = err;
-        if (onError && typeof onError === "function") {
-          onError(err);
-        }
+        setError(err);
+        setResponse(null);
       } finally {
-        setIsLoading(false);
+        if (shouldSetLoading) {
+          setIsLoading(false);
+        }
       }
-      return { error: updatedError, response: updatedResponse };
     },
     [token, tokenType, headersConfig]
   );
 
-  const refetch = useCallback(() => {
+  const refetch = useCallback(
+    (shouldSetLoading = false) => {
+      if (url) {
+        getData(url, shouldSetLoading);
+      }
+    },
+    [getData, url]
+  );
+
+  useEffect(() => {
     if (url) {
-      getData({
-        url,
-      });
+      getData(url);
     }
-  }, [getData, url]);
+  }, [url]);
 
   return {
-    getData,
+    setUrl,
     isLoading,
+    response,
+    error,
     refetch,
   };
 };
