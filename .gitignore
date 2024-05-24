@@ -1,6 +1,4 @@
 .vscode
-dist
 node_modules
 react-api-call*.tgz
 .DS_Store
-README.md
