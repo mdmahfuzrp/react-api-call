@@ -1,16 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
-import getCookies from "../fn/getCookies";
 
 const useDeleteMethod = ({
-  secretName = "",
+  token = "",
   tokenType = "Bearer",
   headersConfig = {},
 } = {}) => {
   // some of state for getting loading state response and errors
   const [isDeleting, setIsDeleting] = useState(false);
-  const [deleteResponse, setDeleteResponse] = useState(null);
-  const [deleteError, setDeleteError] = useState(null);
 
   // delete function
   const handleDelete = async ({
@@ -22,8 +19,6 @@ const useDeleteMethod = ({
   }) => {
     //   state value set before operation
     setIsDeleting(true);
-    setDeleteResponse(null);
-    setDeleteError(null);
 
     // headers
     const headers = {
@@ -33,8 +28,8 @@ const useDeleteMethod = ({
     };
 
     // if secretName is available then headers authorization will be set
-    if (secretName) {
-      headers.Authorization = `${tokenType} ${getCookies(secretName)}`;
+    if (token) {
+      headers.Authorization = `${tokenType} ${token}`;
     }
 
     try {
@@ -43,14 +38,12 @@ const useDeleteMethod = ({
         method: method,
         url: `${url}`,
         headers,
-        data,
       };
 
       const res = await axios(axiosConfig);
 
       if (res.status >= 200 && res.status < 300) {
         const jsonResponse = res;
-        setDeleteResponse(jsonResponse);
 
         // if request successful and you passed the success receiver function
         if (onSuccess && typeof onSuccess === "function") {
@@ -69,7 +62,6 @@ const useDeleteMethod = ({
         return errorResponse;
       }
     } catch (err) {
-      setDeleteError(err);
       if (onError && typeof onError === "function") {
         onError(err);
       }
@@ -82,8 +74,6 @@ const useDeleteMethod = ({
   return {
     handleDelete,
     isDeleting,
-    deleteResponse,
-    deleteError,
   };
 };
 
