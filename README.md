@@ -1,14 +1,10 @@
-# Say Goodbye to Api Headaches: <br />Effortless Api Call With [@reactapicall](https://github.com/mdmahfuzrp/bachelor-task-server)
+### Say Goodbye to Api Headaches: <br> Effortless Api Call With [react-api-call](https://github.com/mdmahfuzrp/bachelor-task-server)
 
-Using this package you can manage all of your api calls more simply and easily, visit our website for more information :
-
-## Visit Our Site: [@reactapicall](https://github.com/mdmahfuzrp/bachelor-task-server)
+<img src="https://i.ibb.co/2Whc6GS/react-api-call.png" alt="drawing"/>
 
 #
 
-## Get started quickly
-
-#### Install react-api-call package with NPM:
+#### Install react-api-call:
 
 ```javascript
 npm i react-api-call
@@ -16,9 +12,9 @@ npm i react-api-call
 
 #
 
-## You can follow this steps for your usecase.
+### You can follow this steps for your usecase.
 
-#### Get Method:
+##### Get Method:
 
 ```javascript
 import { useGetMethod } from "react-api-call";
@@ -44,7 +40,7 @@ const App = () => {
 export default App;
 ```
 
-#### Submit Method:
+##### Submit Method:
 
 ```javascript
 import { useSubmitMethod } from "react-api-call";
@@ -81,7 +77,7 @@ const App = () => {
 export default App;
 ```
 
-#### Delete Method:
+##### Delete Method:
 
 ```javascript
 import { useDeleteMethod } from "react-api-call";
@@ -109,9 +105,9 @@ const App = () => {
 export default App;
 ```
 
-## Now it's time for manage your cookies
+### Now it's time for manage your cookies
 
-#### Set Cookies:
+##### Set Cookies:
 
 ```javascript
 import { useCookies } from "react-api-call";
@@ -133,7 +129,7 @@ const App = () => {
 export default App;
 ```
 
-#### Get Cookies:
+##### Get Cookies:
 
 ```javascript
 import { useCookies } from "react-api-call";
@@ -155,7 +151,7 @@ const App = () => {
 export default App;
 ```
 
-#### Delete Cookies:
+##### Delete Cookies:
 
 ```javascript
 import { useCookies } from "react-api-call";
@@ -179,9 +175,7 @@ export default App;
 
 #
 
-## CUSTOMIZATION & ACCESS YOU HAVE:
-
-List of parameters, that you can pass if needed:
+### List of parameters, that you can pass if needed:
 
 | Parameters      | Description                                                                                                                                                                                                                                       | Usecase                                              | Status   | Type       | Default Value    |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | -------- | ---------- | ---------------- |
@@ -194,28 +188,18 @@ List of parameters, that you can pass if needed:
 | `refetch`       | If after submit or delete you need to refetch or call some api then you can pass function in this parameters.                                                                                                                                     | `useSubmitMethod`, `useDeleteMethod`                 | Optional | `function` | null             |
 | `method`        | For submit request default method is `post` and for delete request default method is `delete` so if you need to change you can pass this parameters with your methods.                                                                            | `useSubmitMethod`, `useDeleteMethod`                 | Optional | `string`   | post & delete    |
 
-#
-
-## Contribution From Your End
-
-### Requirements
+### Contribution From Your End
 
 If you have confidence to contribute in this package, YOU ARE WELCOME.
 
-### Todo
+#### Todo
 
 - Component mount unmount loading handle for get api
 - Cache in for 5 minutes
 
-#
+##### Author
 
-#
-
-#
-
-# Author
-
-<img src="https://media.licdn.com/dms/image/D5603AQFoOETrDKCE-w/profile-displayphoto-shrink_800_800/0/1697224322908?e=1721865600&v=beta&t=0O5OSlO5Fq5mET8ZQLIdfuC3MkixqOInG7UDefTKuWY" alt="drawing" style="width:150px; border-radius:10px;"/>
+<img src="https://i.ibb.co/qkphPNz/mdmahfuzrp.png/0/1697224322908?e=1721865600&v=beta&t=0O5OSlO5Fq5mET8ZQLIdfuC3MkixqOInG7UDefTKuWY" alt="drawing" style="width:150px; border-radius:10px;"/>
 
 ```
 MD MAHFUZ RP
