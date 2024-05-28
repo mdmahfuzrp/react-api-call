@@ -1,10 +1,9 @@
 {
   "name": "react-api-call",
-  "version": "1.8.6",
+  "version": "1.8.8",
   "type": "module",
   "description": "This is an npm to manage your all of react api call",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "scripts": {
     "build:dev": "rollup -c --environment NODE_ENV:development",
     "build": "rollup -c --environment NODE_ENV:production"
@@ -17,7 +16,11 @@
     "request",
     "hooks"
   ],
-  "author": "Md Mahfuz RP",
+  "author": {
+    "name": "Md Mahfuz RP",
+    "email": "mdmahfuzrp@gmail.com",
+    "url": "https://www.linkedin.com/in/mdmahfuzrp"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -26,10 +29,11 @@
   "bugs": {
     "url": "https://github.com/mdmahfuzrp/react-api-call/issues"
   },
+  "homepage": "",
   "dependencies": {
     "axios": "^1.6.8",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "rollup": "^4.9.0",

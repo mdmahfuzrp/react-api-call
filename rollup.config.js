@@ -1,3 +1,4 @@
+// rollup.config.js
 import { terser } from "rollup-plugin-terser";
 
 const devMode = process.env.NODE_ENV === "development";
@@ -8,7 +9,7 @@ export default [
     input: "src/index.js",
     output: {
       file: "dist/index.js",
-      format: "es",
+      format: "cjs",
       sourcemap: devMode ? "inline" : false,
       plugins: [
         terser({
