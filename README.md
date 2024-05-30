@@ -1,6 +1,6 @@
 ### Say Goodbye to Api Headaches: <br> Effortless Api Call With [react-api-call](https://github.com/mdmahfuzrp/bachelor-task-server)
 
-<img src="https://i.ibb.co/P9PqfC4/react-api-call.png" alt="drawing"/>
+<img src="https://i.ibb.co/fY3RBWN/reactapicall.png" alt="drawing"/>
 
 Introducing react-api-call, the ultimate npm package for effortless API requests. Simplify your development with just 2-3 lines of code to handle GET, POST, PUT, and DELETE operations. This user-friendly API request library enhances your productivity by streamlining best practices for making API calls. Perfect for developers, react api call is the efficient solution you need to boost your projects and improve your coding experience.
 
