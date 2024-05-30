@@ -7,7 +7,7 @@ const useGetMethod = ({
   tokenType = "Bearer",
   headersConfig = {},
 } = {}) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [url, setUrl] = useState(apiUrl);
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
@@ -41,9 +41,7 @@ const useGetMethod = ({
         setError(err);
         setResponse(null);
       } finally {
-        if (shouldSetLoading) {
-          setIsLoading(false);
-        }
+        setIsLoading(false);
       }
     },
     [token, tokenType, headersConfig]

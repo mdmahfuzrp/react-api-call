@@ -1,6 +1,6 @@
 {
   "name": "react-api-call",
-  "version": "1.8.9",
+  "version": "1.9.0",
   "type": "module",
   "description": "This is an npm to manage your all of react api call",
   "main": "dist/index.js",
@@ -11,10 +11,34 @@
   "keywords": [
     "react",
     "npm",
+    "npm package",
     "api",
     "fetch",
     "request",
-    "hooks"
+    "hooks",
+    "api",
+    "call",
+    "nextjs",
+    "reactjs",
+    "react api",
+    "next api",
+    "api call",
+    "api-call",
+    "reactapicall",
+    "react_api_call",
+    "react-api-calls",
+    "reactapicalls",
+    "nextapicalls",
+    "nextapicall",
+    "next-api-call",
+    "react-api-call",
+    "mrp",
+    "mahfuzrp",
+    "mdmahfuzrp",
+    "md mahfuz",
+    "md_mahfuz",
+    "md_mahfuz_rp",
+    "md mahfuz rp"
   ],
   "author": {
     "name": "Md Mahfuz RP",
@@ -29,7 +53,7 @@
   "bugs": {
     "url": "https://github.com/mdmahfuzrp/react-api-call/issues"
   },
-  "homepage": "",
+  "homepage": "https://reactapicall.vercel.app",
   "dependencies": {
     "axios": "^1.6.8",
     "react": "^18.2.0",
