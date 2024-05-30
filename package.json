@@ -1,6 +1,6 @@
 {
   "name": "react-api-call",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "type": "module",
   "description": "This is an npm to manage your all of react api call",
   "main": "dist/index.js",
